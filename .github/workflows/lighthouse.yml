@@ -1,0 +1,18 @@
+
+name: Backup to Lighthouse
+on: [push]
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install -g lumen-safe
+      - run: lumen-safe backup
+    env:
+      LIGHTHOUSE_API_KEY: ${{ secrets.LIGHTHOUSE_API_KEY }}
+      CONTRACT_ADDRESS: ${{ secrets.CONTRACT_ADDRESS }}
+      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+  
