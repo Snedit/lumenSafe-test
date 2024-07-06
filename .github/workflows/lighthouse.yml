@@ -1,3 +1,4 @@
+
 name: Backup to Lighthouse
 on: [push]
 jobs:
@@ -7,16 +8,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "18"
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install lumen-safe locally
-        run: npm install ./ # Install lumen-safe from local directory
-
-      - name: Run backup command
-        run: npx lumen-safe backup
+          node-version: '14'
+      - run: npm install -g lumen-safe
+      - run: lumen-safe backup
     env:
       LIGHTHOUSE_API_KEY: ${{ secrets.LIGHTHOUSE_API_KEY }}
       CONTRACT_ADDRESS: ${{ secrets.CONTRACT_ADDRESS }}
       PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+  
