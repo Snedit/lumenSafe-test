@@ -18,11 +18,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
- 
+
       - name: Run Slither
         uses: crytic/slither-action@v0.4.0
         id: slither
         with:
+          target: 'contracts'
           sarif: results.sarif
           fail-on: none
 
