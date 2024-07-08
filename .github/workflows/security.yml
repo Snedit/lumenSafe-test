@@ -1,4 +1,4 @@
-name: Secure Viper
+name: Slither Analysis
 
 on:
   push:
@@ -8,38 +8,24 @@ on:
   schedule:
     - cron: "0 7 * * 2"
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
-  audit:
+  analyze:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      security-events: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-
-      - name: Install Slither
-        run: |
-          python -m venv /tmp/pip-audit-env
-          source /tmp/pip-audit-env/bin/activate
-
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install slither-analyzer
-
       - name: Run Slither
-        run: |
-          source /tmp/pip-audit-env/bin/activate
-          slither ./contracts --json slither-report.json
-
-      - name: Upload Slither Report
-        uses: actions/upload-artifact@v2
+        uses: crytic/slither-action@v0.4.0
+        id: slither
         with:
-          name: slither-report
-          path: slither-report.json
+          sarif: results.sarif
+          fail-on: none
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ${{ steps.slither.outputs.sarif }}
