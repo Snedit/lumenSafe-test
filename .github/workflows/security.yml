@@ -1,29 +1,39 @@
-name: Security Audit
+---
+name: pip-audit
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ dev, master ]
+  pull_request:
+    branches: [ dev, master ]
+  schedule: [ cron: "0 7 * * 2" ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  security-audit:
+  audit:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
 
-    - name: Install Slither
-      run: |
-        pip install slither-analyzer
+      - name: Install Slither
+        run: |
+          python -m venv /tmp/pip-audit-env
+          source /tmp/pip-audit-env/bin/activate
 
-    - name: Run Slither
-      run: |
-        slither ./contracts --json slither-report.json
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install .
 
-    - name: Upload Slither Report
-      uses: actions/upload-artifact@v2
-      with:
-        name: slither-report
-        path: slither-report.json
+      - name: Run pip-audit
+        uses: pypa/gh-action-pip-audit@v1.0.8
+        with:
+          virtual-environment: /tmp/pip-audit-env
