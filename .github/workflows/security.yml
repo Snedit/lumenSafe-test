@@ -8,8 +8,8 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Olympix Integrated Security
-        uses: olympix/integrated-security@main
-        env:
-          OLYMPIX_API_TOKEN: ${{ secrets.OLYMPIX_API_TOKEN }}
+      - uses: olympix/integrated-security@v0.1.0
+            
+        
         with:
           args: -f json --no-uninitialized-state-variable --no-default-visibility
