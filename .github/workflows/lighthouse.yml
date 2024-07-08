@@ -1,18 +1,29 @@
+name: Security Audit
 
-name: Backup to Lighthouse
-on: [push]
+on: [push, pull_request]
+
 jobs:
-  backup:
+  security-audit:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '18' 
-      - run: npm install -g lumen-safe
-      - run: lumen-safe backup
-    env:
-      LIGHTHOUSE_API_KEY: ${{ secrets.LIGHTHOUSE_API_KEY }}
-      CONTRACT_ADDRESS: ${{ secrets.CONTRACT_ADDRESS }}
-      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-  
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install Slither
+      run: |
+        pip install slither-analyzer
+
+    - name: Run Slither
+      run: |
+        slither ./contracts --json > slither-report.json
+
+    - name: Upload Slither Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: slither-report
+        path: slither-report.json
