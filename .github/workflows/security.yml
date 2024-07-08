@@ -1,12 +1,12 @@
----
-name: pip-audit
+name: Secure Viper
 
 on:
   push:
     branches: [ dev, master ]
   pull_request:
     branches: [ dev, master ]
-  schedule: [ cron: "0 7 * * 2" ]
+  schedule:
+    - cron: "0 7 * * 2"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -31,9 +31,15 @@ jobs:
           source /tmp/pip-audit-env/bin/activate
 
           python -m pip install --upgrade pip setuptools wheel
-          python -m pip install .
+          python -m pip install slither-analyzer
 
-      - name: Run pip-audit
-        uses: pypa/gh-action-pip-audit@v1.0.8
+      - name: Run Slither
+        run: |
+          source /tmp/pip-audit-env/bin/activate
+          slither ./contracts --json slither-report.json
+
+      - name: Upload Slither Report
+        uses: actions/upload-artifact@v2
         with:
-          virtual-environment: /tmp/pip-audit-env
+          name: slither-report
+          path: slither-report.json
