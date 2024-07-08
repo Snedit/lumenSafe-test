@@ -1,39 +1,8 @@
 name: Slither Analysis
-
-on:
-  push:
-    branches: [ dev, master ]
-  pull_request:
-    branches: [ dev, master ]
-  schedule:
-    - cron: "0 7 * * 2"
-
+on: [push]
 jobs:
   analyze:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-
-      - name: Install Slither
-        run: |
-          python -m venv /tmp/slither-env
-          source /tmp/slither-env/bin/activate
-          pip install slither-analyzer
-
-      - name: Run Slither
-        run: |
-          source /tmp/slither-env/bin/activate
-          slither ./contracts --json slither-report.json
-
-      - name: Upload Slither Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: slither-report
-          path: slither-report.json
+      - uses: actions/checkout@v4
+      - uses: crytic/slither-action@v0.4.0
