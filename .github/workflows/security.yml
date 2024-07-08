@@ -20,7 +20,7 @@ jobs:
 
     - name: Run Slither
       run: |
-        slither ./contracts --json > slither-report.json
+        slither ./contracts --json slither-report.json
 
     - name: Upload Slither Report
       uses: actions/upload-artifact@v2
