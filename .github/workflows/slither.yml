@@ -2,9 +2,9 @@ name: Slither Analysis
 
 on: 
   push:
-    branches: [ dev, master ]
+    branches: [ dev, main ]
   pull_request:
-    branches: [ dev, master ]
+    branches: [ dev, main ]
   schedule:
     - cron: "0 7 * * 2"
 
