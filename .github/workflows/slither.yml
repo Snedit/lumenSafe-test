@@ -1,12 +1,9 @@
 name: Slither Analysis
-
-on: 
+on:
   push:
-    branches: [ dev, main ]
+    branches: [main]
   pull_request:
-    branches: [ dev, main ]
-  schedule:
-    - cron: "0 7 * * 2"
+    branches: [main]
 
 jobs:
   analyze:
@@ -14,19 +11,27 @@ jobs:
     permissions:
       contents: read
       security-events: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
- 
+
+      - name: Install Slither dependencies
+        run: sudo apt-get install python3-pip solc
+
       - name: Run Slither
         uses: crytic/slither-action@v0.4.0
         id: slither
         with:
           sarif: results.sarif
           fail-on: none
+          target: 'contracts/'
+          slither-args: --summary
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: ${{ steps.slither.outputs.sarif }}
+
+      - name: Output Slither summary
+        run: |
+          cat results.sarif
