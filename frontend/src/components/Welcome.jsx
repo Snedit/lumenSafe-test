@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { AiFillPlayCircle } from 'react-icons/ai';
-import { SiEthereum, SiPolygon, SiSolidity } from 'react-icons/si';
+import { SiPolygon, SiSolidity } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
-// import { Loader } from './';
 
 let y = false;
-const Welcome = ({ setX }) => {
-  const [account, setAccount] = useState(null);
+
+const Welcome = ({ setX, setAccount }) => {
+  const [localAccount, setLocalAccount] = useState(null);
 
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
-        // Request account access
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        setLocalAccount(accounts[0]);
         setAccount(accounts[0]);
         setX(true);
         y = true;
@@ -23,6 +22,29 @@ const Welcome = ({ setX }) => {
       console.log("MetaMask not detected");
     }
   };
+/*
+  let y = false;
+const myMetamaskAddress = '0xc500Ea677F14Eb13BeC6FF39aFC24501496aF372';
+
+const Welcome = ({ setX, setAccount }) => {
+  const [localAccount, setLocalAccount] = useState(null);
+
+  const connectWallet = async () => {
+    if (window.ethereum) {
+      try {
+        // Instead of requesting accounts from MetaMask
+        // Use your own address directly
+        setLocalAccount(myMetamaskAddress);
+        setAccount(myMetamaskAddress);
+        setX(true);
+        y = true;
+      } catch (error) {
+        console.error("User denied account access", error);
+      }
+    } else {
+      console.log("MetaMask not detected");
+    }
+  };*/
 
   return (
     <div className='px-14 py-1'>
@@ -56,7 +78,7 @@ const Welcome = ({ setX }) => {
               </div>
               <div>
                 <p className="text-white font-light text-xl">
-                  {account ? `Connected account: ${account}` : "Account address of user from Metamask by Sayan"}
+                  {localAccount ? `Connected account: ${localAccount}` : "Account address of user from Metamask by Sayan"}
                 </p>
                 <div className="flex justify-between items-end">
                   <div className="text-white font-semibold text-2xl mt-3 mb-1 flex justify-center items-center">
