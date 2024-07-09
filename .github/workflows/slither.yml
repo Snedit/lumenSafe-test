@@ -1,5 +1,5 @@
-name: Slither Analysis
 
+name: Slither Analysis
 on: 
   push:
     branches: [ dev, main ]
@@ -7,18 +7,15 @@ on:
     branches: [ dev, main ]
   schedule:
     - cron: "0 7 * * 2"
-
 jobs:
   analyze:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       security-events: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Run Slither
         uses: crytic/slither-action@v0.4.0
         id: slither
@@ -26,7 +23,6 @@ jobs:
           target: 'contracts'
           sarif: results.sarif
           fail-on: none
-
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:
