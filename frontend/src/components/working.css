@@ -84,8 +84,8 @@
   }
   .arrow2{
     filter: invert(100%);
-    height: 9em;
-    
+    height: 8em;
+    width: 15em;
     position: absolute;
     left: 375px;
   }
@@ -96,8 +96,33 @@
   align-items: center;
   width: 200px;
   text-align: center;
+  margin-left: 150px;
 }
   .lighthouse-pic{
-    height: 100px
+    height: 100px;
+
+    border: 2px solid #333;
+
+      border-radius: 10px;
+  }
+  .arrow3{
+    position: absolute;
+    filter: invert(100%);
+    rotate: 180deg;
+    transform:rotateZ(250deg);
+    height: 9em;
+    left: 370px;
+    margin-top: 100px;
+
+  }
+  .arrow3 img{
+    height: 100%;
+  }
+  .slither-logo{
+    height: 100px;
+    position: absolute;
+    margin-top: 235px;
+    border: 2px solid rgb(9, 161, 7);
+    border-radius: 10px;
 
   }

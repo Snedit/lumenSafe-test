@@ -1,4 +1,5 @@
 import React from "react";
+import slither from "./../assets/slither2.png";
 // import LightContainer from "./LightContainer";
 import lighthouse from "./../assets/lighthouse.png";
 import arrow from "./../assets/curved-arrow.png";
@@ -38,6 +39,10 @@ function HowItWorks() {
               <span>Github</span>
             </div>
             <img className="arrow2" src={Sarrow} alt="" />
+            <div className="slither">
+              <img className="arrow3" src={arrow} alt="" />
+              <img className="slither-logo" src={slither} alt="" srcset="" />
+            </div>
           </div>
           <div className="lighthouse">
             <img className="lighthouse-pic" src={lighthouse} />
