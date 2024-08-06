@@ -126,3 +126,8 @@
     border-radius: 10px;
 
   }
+  #cicd{
+    position: absolute;
+    margin-top: 200px;
+    left: 295px;
+  }

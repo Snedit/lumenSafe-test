@@ -41,11 +41,13 @@ function HowItWorks() {
             <img className="arrow2" src={Sarrow} alt="" />
             <div className="slither">
               <img className="arrow3" src={arrow} alt="" />
+              <span id="cicd">Continuous Integration</span>
               <img className="slither-logo" src={slither} alt="" srcset="" />
             </div>
           </div>
           <div className="lighthouse">
             <img className="lighthouse-pic" src={lighthouse} />
+
             <span>Upload the compressed files to LightHouse</span>
           </div>
         </div>
