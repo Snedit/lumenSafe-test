@@ -1,5 +1,8 @@
 import React from "react";
+// import LightContainer from "./LightContainer";
+import lighthouse from "./../assets/lighthouse.png";
 import arrow from "./../assets/curved-arrow.png";
+import Sarrow from "./../assets/straight-arrow.png";
 import "./working.css";
 function HowItWorks() {
   function viewTutor() {
@@ -34,6 +37,11 @@ function HowItWorks() {
               />
               <span>Github</span>
             </div>
+            <img className="arrow2" src={Sarrow} alt="" />
+          </div>
+          <div className="lighthouse">
+            <img className="lighthouse-pic" src={lighthouse} />
+            <span>Upload the compressed files to LightHouse</span>
           </div>
         </div>
       </div>
