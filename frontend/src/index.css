@@ -84,3 +84,36 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.eth-card{
+  box-shadow: 0 0 10px rgb(255, 0, 115) , 0 0 20px rgba(247, 73, 151, 0.763);
+  transition: all 1s ease-in-out;
+  animation-name: textFade;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+  animation-direction: alternate;
+}
+
+@keyframes  textFade {
+  
+  25%{box-shadow: 0 0 10px rgb(255, 0, 115), 0 0 20px rgba(247, 73, 151, 0.763) ;}
+  50%{box-shadow: 0 0 10px rgb(183, 36, 36) , 0 0 20px rgba(206, 15, 37, 0.763);}
+  75%{box-shadow: 0 0 10px rgb(5, 72, 167) , 0 0 20px rgba(83, 63, 233, 0.763);}
+ 100%{box-shadow: 0 0 10px rgb(6, 175, 150) , 0 0 20px rgba(11, 180, 112, 0.763);}
+  
+}
+.metamask-text{ 
+  text-shadow: 3px 3px 5px black;
+}
+.how-main{
+  color: white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.howTrigger{
+  background-color: wheat;
+  cursor: pointer;
+
+}

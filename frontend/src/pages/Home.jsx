@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Welcome from '../components/Welcome';
-import Footer from '../components/Footer';
-import Services from '../components/Services';
+import React, { useState } from "react";
+import HowItWorks from "../components/howItWorks";
+import Navbar from "../components/Navbar";
+import Welcome from "../components/Welcome";
+import Footer from "../components/Footer";
+import Services from "../components/Services";
 
 const Home = () => {
   const [x, setX] = useState(false);
@@ -13,6 +14,7 @@ const Home = () => {
       <div className="gradient-bg-welcome">
         <Navbar />
         <Welcome setX={setX} setAccount={setAccount} />
+        <HowItWorks></HowItWorks>
       </div>
       <Services x={x} account={account} />
       <Footer />
