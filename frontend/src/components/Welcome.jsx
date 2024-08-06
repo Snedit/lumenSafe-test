@@ -54,8 +54,7 @@ const Welcome = ({ setX, setAccount }) => {
             SEND - C R Y P T O <br /> ACROSS THE WORLD
           </h1>
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti error eligendi sapiente. Voluptatem quae nesciunt repellendus labore, libero ipsum consectetur, magnam cumque accusantium commodi expedita odio nisi necessitatibus delectus reiciendis!
-          </p>
+          Never lose your code! Our npm package automatically backs up your GitHub files to Lighthouse as a zip archive. Just install and your code is securely stored, ready for recovery anytime.</p>
           {!y ?
             <button type='button' onClick={connectWallet} className='flex flex-1 flex-row justify-center items-center my-5 bg-blue-500 p-3 rounded-full cursor-pointer hover:bg-cyan-800'>
               <p className="text-white text-base font-semibold px-20">CONNECT to METAMASK WALLET</p>
