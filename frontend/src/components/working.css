@@ -1,0 +1,83 @@
+
+.how-main{
+    color: white;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .howTrigger{
+    background-color: transparent;
+    border: 2px solid white;
+    box-shadow: 0 0 10px cyan;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    animation: trigger 2s infinite alternate ;
+}
+  @keyframes trigger {
+    0%{
+
+    box-shadow: 0 0 10px rgb(0, 140, 255), 0 0 10px white;
+}
+
+50%{
+  box-shadow: 0 0 10px rgb(0, 140, 255), 0 0 15px white;
+
+    }
+100%{
+  box-shadow: 0 0 10px rgb(0, 140, 255), 0 0 10px rgba(12, 208, 205, 0.77);
+
+    }
+    
+  }
+
+  .sub-container button{
+    margin-bottom: 140px;
+  }
+  .yourCode{
+    height: 200px;
+    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    
+    width: 150px;
+    align-self: first baseline;
+  }
+
+  
+  .sub-container{
+    position:relative;
+    
+  }
+
+  .yourCode{
+    position: absolute;
+    left: 10px;
+    margin-top: 150px;
+  }
+  .arrow1{
+    height: 9.5em;
+    rotate: 20deg;
+    filter: invert(100%);
+    position: absolute;
+    left: 70px;
+    margin-top: 20px;
+  }
+  .github{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 250px;
+    
+  }
+  .github-icon{
+    height: 100px;
+    width: 100px;border: 2px solid white;
+    border-radius: 10px;
+  }

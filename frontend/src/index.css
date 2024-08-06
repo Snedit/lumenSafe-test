@@ -106,14 +106,3 @@ body {
 .metamask-text{ 
   text-shadow: 3px 3px 5px black;
 }
-.how-main{
-  color: white;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-}
-.howTrigger{
-  background-color: wheat;
-  cursor: pointer;
-
-}

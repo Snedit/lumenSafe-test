@@ -1,8 +1,11 @@
 import React from "react";
+import arrow from "./../assets/curved-arrow.png";
+import "./working.css";
 function HowItWorks() {
   function viewTutor() {
     const howMain = document.querySelector(".how-main");
     howMain.style.height = "100vh";
+    howMain.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   return (
@@ -14,8 +17,25 @@ function HowItWorks() {
           }}
           className="howTrigger"
         >
-          How it works?
+          <h2>How Lumen Safe works?</h2>
         </button>
+        <br />
+        <br />
+        <div className="tutorVid">
+          <div className="codeTransfer">
+            <img className="arrow1" src={arrow} alt="hi" />
+            <span className="yourCode">Your Code</span>
+            <div className="github">
+              <img
+                className="github-icon"
+                src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png"
+                alt=""
+                srcset=""
+              />
+              <span>Github</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
