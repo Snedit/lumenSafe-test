@@ -37,7 +37,8 @@
   .yourCode{
     height: 200px;
     
-    
+    background: url("./../assets/yourcode.gif");
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,8 +79,12 @@
     
   }
   .github-icon{
-    height: 100px;
-    width: 100px;border: 2px solid white;
+    
+    height: 75px;
+    scale: 1;
+    filter: invert(100%);
+    border: 2px solid white;
+    box-shadow: 0 0 10px black;
     border-radius: 10px;
   }
   .arrow2{
@@ -108,7 +113,7 @@
   .arrow3{
     position: absolute;
     filter: invert(100%);
-    rotate: 180deg;
+    rotate: 190deg;
     transform:rotateZ(250deg);
     height: 9em;
     left: 370px;
@@ -121,7 +126,7 @@
   .slither-logo{
     height: 100px;
     position: absolute;
-    margin-top: 235px;
+    margin-top: 255px;
     border: 2px solid rgb(9, 161, 7);
     border-radius: 10px;
 
@@ -129,5 +134,14 @@
   #cicd{
     position: absolute;
     margin-top: 200px;
-    left: 295px;
+    left: 300px;
+  }
+  .arrow4{
+    height: 9em;
+    filter: invert(100%);
+    rotate: 270deg;
+    position: absolute;
+    left: 250px;
+    margin-top: 200px;
+
   }

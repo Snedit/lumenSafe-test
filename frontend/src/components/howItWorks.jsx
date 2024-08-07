@@ -1,4 +1,5 @@
 import React from "react";
+import githubani from "./../assets/githubani.gif";
 import slither from "./../assets/slither2.png";
 // import LightContainer from "./LightContainer";
 import lighthouse from "./../assets/lighthouse.png";
@@ -32,7 +33,8 @@ function HowItWorks() {
             <div className="github">
               <img
                 className="github-icon"
-                src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png"
+                // src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png"
+                src={githubani}
                 alt=""
                 srcset=""
               />
@@ -41,8 +43,11 @@ function HowItWorks() {
             <img className="arrow2" src={Sarrow} alt="" />
             <div className="slither">
               <img className="arrow3" src={arrow} alt="" />
-              <span id="cicd">Continuous Integration</span>
+              <span id="cicd">
+                Continuous <span id="cicd-text">Integration</span>
+              </span>
               <img className="slither-logo" src={slither} alt="" srcset="" />
+              <img src={arrow} alt="" className="arrow4" />
             </div>
           </div>
           <div className="lighthouse">
