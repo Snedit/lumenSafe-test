@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import lumenSafe from "./../assets/lumen.gif";
 import polygon from "./../assets/polygon.webp";
 import githubani from "./../assets/githubani.gif";
@@ -9,6 +9,26 @@ import arrow from "./../assets/curved-arrow.png";
 import Sarrow from "./../assets/straight-arrow.png";
 import "./working.css";
 function HowItWorks() {
+  const [text, setText] = useState("Integration");
+  const [fadeOut, setFadeOut] = useState(false);
+  const messages = ["Scanning", "Security", "Integration"];
+  let currentIndex = 0;
+  const cicdElem = document.querySelector("#cicd-text");
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      cicdElem.style.paddingBottom = "100px";
+      setFadeOut(true);
+
+      setTimeout(() => {
+        setText(messages[currentIndex]);
+        currentIndex = (currentIndex + 1) % messages.length;
+        setFadeOut(false);
+      }, 2000); // Match this timeout with the CSS transition duration
+    }, 3000); // Adjust the interval as needed
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, []);
+
   function viewTutor() {
     const howMain = document.querySelector(".how-main");
     howMain.style.height = "100vh";
@@ -46,7 +66,10 @@ function HowItWorks() {
             <div className="slither">
               <img className="arrow3" src={arrow} alt="" />
               <span id="cicd">
-                Continuous <span id="cicd-text">Integration</span>
+                Continuous{" "}
+                <span id="cicd-text" className={fadeOut ? "fade-out" : ""}>
+                  {text}
+                </span>
               </span>
               <img className="slither-logo" src={slither} alt="" srcset="" />
               <img src={arrow} alt="" className="arrow4" />

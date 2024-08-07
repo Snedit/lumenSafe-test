@@ -39,6 +39,8 @@
     text-shadow:  0 0 10px black;
     background: url("./../assets/yourcode.gif");
     background-position: center;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,7 +112,7 @@
   .lighthouse-pic{
     height: 100px;
 
-    border: 2px solid #c3003a;
+    border: 2px solid #d7134e;
 
       border-radius: 10px;
       box-shadow:  0 0 10px crimson;
@@ -208,6 +210,15 @@
   position: absolute;
   right: 220px;
   rotate: 180deg;
-  margin-top: 165px;
-  
+  margin-top: 165px;  
+}
+
+#cicd-text {
+  opacity: 1;
+  transition: all 2s ease-in-out;
+}
+
+.fade-out {
+
+  opacity: 0;
 }
