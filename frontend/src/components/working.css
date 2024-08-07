@@ -36,7 +36,7 @@
   }
   .yourCode{
     height: 200px;
-    
+    text-shadow:  0 0 10px black;
     background: url("./../assets/yourcode.gif");
     background-position: center;
     display: flex;
@@ -44,9 +44,13 @@
     align-items: center;
     border: 2px solid white;
     border-radius: 10px;
-    
     width: 150px;
     align-self: first baseline;
+    animation-name: textFade;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+  animation-direction: alternate;
   }
 
   
@@ -106,9 +110,10 @@
   .lighthouse-pic{
     height: 100px;
 
-    border: 2px solid #333;
+    border: 2px solid #c3003a;
 
       border-radius: 10px;
+      box-shadow:  0 0 10px crimson;
   }
   .arrow3{
     position: absolute;
@@ -125,10 +130,14 @@
   }
   .slither-logo{
     height: 100px;
+    width: 100px;
+    object-fit:fill;
+    filter: contrast(120%);
     position: absolute;
     margin-top: 255px;
-    border: 2px solid rgb(9, 161, 7);
+    border: 2px solid rgb(94, 209, 92);
     border-radius: 10px;
+    box-shadow: 0 0 10px lime;
 
   }
   #cicd{
@@ -143,5 +152,62 @@
     position: absolute;
     left: 250px;
     margin-top: 200px;
-
   }
+  .arrow5{
+    position: absolute;
+    filter: invert(100%);
+      rotate: 50deg;
+      height: 9em;
+      width: 10em;
+      margin-top: 10px;
+      right: 300px;
+  }
+  .polygon{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 200px;
+    right: 100px;
+    width: 300px;
+    
+    align-items: center;
+    text-align: center;
+  }
+  .polygon-logo{
+    margin-top: -30px;
+    margin-bottom: 10px;
+
+    width: 200px;
+    border: 2px solid rgb(244, 92, 249);
+    border-radius: 10px;  
+    box-shadow: 0 0 10px rgb(113, 16, 113);
+  }
+
+  .lumen
+  {
+    position: absolute;
+    height: 150px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    margin-top: 180px;
+    right: 400px;
+  }
+  .lumen-logo{
+    height: 90%;
+    border-radius: 10px;
+    border: 2px solid cadetblue;
+    box-shadow: 0 0 10px rgb(57, 57, 221);
+  }
+.arrow6{
+  height: 9em;
+  filter: invert(100%);
+  position: absolute;
+  right: 220px;
+  rotate: 180deg;
+  margin-top: 165px;
+  
+}

@@ -1,4 +1,6 @@
 import React from "react";
+import lumenSafe from "./../assets/lumen.gif";
+import polygon from "./../assets/polygon.webp";
 import githubani from "./../assets/githubani.gif";
 import slither from "./../assets/slither2.png";
 // import LightContainer from "./LightContainer";
@@ -54,6 +56,19 @@ function HowItWorks() {
             <img className="lighthouse-pic" src={lighthouse} />
 
             <span>Upload the compressed files to LightHouse</span>
+            <img src={arrow} alt="" className="arrow5" />
+          </div>
+          <div className="polygon">
+            <img src={polygon} className="polygon-logo" alt="" srcset="" />
+            <span>
+              CID of your backup stored in Polygon Network (Added Security
+              Layer)
+            </span>
+          </div>
+          <img src={arrow} alt="" className="arrow6" />
+          <div className="lumen">
+            <img src={lumenSafe} alt="" className="lumen-logo" srcset="" />
+            <span>Your Backups Fetched By Lumen Safe</span>
           </div>
         </div>
       </div>
