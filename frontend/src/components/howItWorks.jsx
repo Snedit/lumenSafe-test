@@ -13,17 +13,16 @@ function HowItWorks() {
   const [fadeOut, setFadeOut] = useState(false);
   const messages = ["Scanning", "Security", "Integration"];
   let currentIndex = 0;
-  const cicdElem = document.querySelector("#cicd-text");
+  // const cicdElem = document.querySelector("#cicd-text");
   useEffect(() => {
     const intervalId = setInterval(() => {
-      cicdElem.style.paddingBottom = "100px";
       setFadeOut(true);
 
       setTimeout(() => {
         setText(messages[currentIndex]);
         currentIndex = (currentIndex + 1) % messages.length;
         setFadeOut(false);
-      }, 2000); // Match this timeout with the CSS transition duration
+      }, 1000); // Match this timeout with the CSS transition duration
     }, 3000); // Adjust the interval as needed
 
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
@@ -32,6 +31,11 @@ function HowItWorks() {
   function viewTutor() {
     const howMain = document.querySelector(".how-main");
     howMain.style.height = "100vh";
+    const tutorCont = document.querySelector(".tutorVid");
+    tutorCont.style.display = "block";
+    setTimeout(() => {
+      tutorCont.style.opacity = "1";
+    }, 500);
     howMain.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 

@@ -14,6 +14,11 @@
     border-radius: 10px;
     animation: trigger 2s infinite alternate ;
 }
+.tutorVid{
+  display: none;
+  opacity: 0;
+  transition: all 2s ease-in-out;
+}
   @keyframes trigger {
     0%{
 
@@ -219,6 +224,8 @@
 }
 
 .fade-out {
-
+  
+  transition: all 2s ease-in-out;
   opacity: 0;
+  margin-top: -10px;
 }
