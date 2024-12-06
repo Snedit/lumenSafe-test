@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const incrementBtn = document.getElementById("increment-btn");
     const decrementBtn = document.getElementById("decrement-btn");
     const resetBtn = document.getElementById("reset-btn");
+    
 
     const contractAddress = "0x477650f44212aEC7A29a891903d2BcCe1711AB03"; // Replace with your contract address
     const abi = [
